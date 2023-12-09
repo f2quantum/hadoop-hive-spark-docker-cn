@@ -1,8 +1,12 @@
 FROM hadoop-hive-spark-base AS base
 FROM tensorflow/tensorflow:latest-gpu
 
-RUN sed -i -e "s|http://archive.ubuntu.com|http://jp.archive.ubuntu.com|g" /etc/apt/sources.list \
- && apt-get -qq update  \
+RUN apt-key del 7fa2af80
+RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb -o /tmp/cuda-keyring_1.0-1_all.deb 
+RUN dpkg -i /tmp/cuda-keyring_1.0-1_all.deb
+RUN rm -rf /etc/apt/sources.list.d/cuda.list
+
+RUN apt-get -qq update  \
  && DEBIAN_FRONTEND=noninteractive apt-get -qq install --no-install-recommends \
       sudo \
       openjdk-8-jdk \
@@ -46,11 +50,11 @@ ENV HIVE_HOME=/opt/hive
 ENV HIVE_CONF_DIR=$HIVE_HOME/conf
 ENV PATH=$HIVE_HOME/sbin:$HIVE_HOME/bin:$PATH
 
-RUN sudo pip install -U pip &&\
+RUN sudo pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&\
     sudo pip install --no-cache-dir \
     pandas \
     openpyxl \
     findspark \
-    tensorflow-serving-api
+    tensorflow-serving-api -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 WORKDIR /home/$USERNAME
