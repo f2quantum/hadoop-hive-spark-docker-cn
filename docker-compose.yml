@@ -162,6 +162,7 @@ services:
       SPARK_LOCAL_HOSTNAME: dev
     volumes:
       - ./dev/home:/home/jupyter/dev
+      - ./spark-test-ant:/home/jupyter/spark-test-ant
     networks:
       sparknet:
         ipv4_address: 172.28.1.7

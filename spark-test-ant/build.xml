@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<project name="spark-test-ant" default="compile">
+
+  <property name="src.dir" value="${basedir}/src/java"/>
+
+  <property name="build.encoding" value="UTF-8"/>
+  <property name="build.dir" value="${basedir}/build"/>
+  <property name="build.src" value="${build.dir}/src"/>
+  <property name="build.classes" value="${build.dir}/classes"/>
+  <property name="lib.dir" value="${basedir}/lib"/>
+  <property name="conf.dir" value="${basedir}/conf"/>
+ 
+  <property name="javac.debug" value="on"/>
+  <property name="javac.optimize" value="on"/>
+  <property name="javac.deprecation" value="off"/>
+  <property name="javac.version" value="1.8"/>
+
+  <property name="name" value="spark-test-ant"/>
+  <property name="version" value="0.0.1"/>
+  <property name="final.name" value="${name}-${version}"/>
+
+<!-- the normal classpath -->
+  <path id="classpath">
+    <pathelement location="${build.classes}"/>
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar" />
+    </fileset>
+    <pathelement location="${conf.dir}"/>
+  </path>
+
+  <target name="compile">
+    <javac 
+     encoding="${build.encoding}" 
+     srcdir="${src.dir};${build.src}"
+     includes="org/peng/spark/**/*.java"
+     destdir="${build.classes}"
+     debug="${javac.debug}"
+     optimize="${javac.optimize}"
+     target="${javac.version}"
+     source="${javac.version}"
+     deprecation="${javac.deprecation}">
+      <classpath refid="classpath"/>
+    </javac>    
+  </target>
+
+
+  <!-- ================================================================== -->
+  <!-- Make spark-test-ant.jar                                            -->
+  <!-- ================================================================== -->
+  <!--                                                                    -->
+  <!-- ================================================================== -->
+  <target name="jar" depends="compile">
+    <jar jarfile="${build.dir}/${final.name}.jar"
+         basedir="${build.classes}">
+     
+    </jar>
+  </target>
+
+</project>
