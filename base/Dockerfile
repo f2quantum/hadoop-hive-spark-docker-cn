@@ -101,6 +101,12 @@ COPY --chown=$USERNAME:$GROUPNAME conf/spark-defaults.conf $SPARK_CONF_DIR/
 COPY --chown=$USERNAME:$GROUPNAME conf/log4j.properties $SPARK_CONF_DIR/
 COPY --chown=$USERNAME:$GROUPNAME conf/hive-site.xml $HIVE_CONF_DIR/
 
+
+# Hivemall plugin
+COPY --chown=$USERNAME:$GROUPNAME conf/.hiverc $HOME
+COPY --chown=$USERNAME:$GROUPNAME resource/ddl/define-all.hive $HIVE_CONF_DIR/
+COPY --chown=$USERNAME:$GROUPNAME lib/hivemall-all-0.6.0-incubating.jar $HIVE_HOME/lib
+
 RUN ln $HADOOP_CONF_DIR/workers $SPARK_CONF_DIR/ \
  && ln $HIVE_CONF_DIR/hive-site.xml $SPARK_CONF_DIR/
 
