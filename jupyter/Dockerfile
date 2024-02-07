@@ -1,5 +1,5 @@
 FROM hadoop-hive-spark-base AS base
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM tensorflow/tensorflow:2.11.0-gpu-jupyter
 
 RUN apt-key del 7fa2af80
 RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb -o /tmp/cuda-keyring_1.0-1_all.deb 
