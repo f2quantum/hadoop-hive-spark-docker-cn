@@ -5,6 +5,9 @@ RUN apt-key del 7fa2af80
 RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb -o /tmp/cuda-keyring_1.0-1_all.deb 
 RUN dpkg -i /tmp/cuda-keyring_1.0-1_all.deb
 RUN rm -rf /etc/apt/sources.list.d/cuda.list
+
+RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+
 RUN apt-get update -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends \
       sudo \
@@ -54,6 +57,8 @@ RUN sudo pip install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&\
     pandas \
     openpyxl \
     findspark \
+    geopandas \
+    shapely \
     tensorflow-serving-api -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 WORKDIR /home/$USERNAME

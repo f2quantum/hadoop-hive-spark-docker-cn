@@ -1,4 +1,6 @@
 FROM ubuntu:latest
+# aliyun mirror
+RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
 RUN apt-get update  -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends \
@@ -7,7 +9,7 @@ RUN apt-get update  -y \
       curl \
       gnupg \
       procps \
-      python3 \
+      python3.10 \
       python3-pip \
       python-is-python3 \
       coreutils \

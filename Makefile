@@ -6,5 +6,8 @@ build:
 	docker build -t hadoop-hive-spark-jupyter ./jupyter
 	docker build -t hadoop-hive-spark-dev ./dev
 
+buildjupyter:
+	docker build -t hadoop-hive-spark-jupyter ./jupyter
+
 up:
 	docker-compose up
