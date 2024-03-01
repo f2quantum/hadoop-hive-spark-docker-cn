@@ -11,7 +11,7 @@ services:
     restart: always
     network_mode: "host"
     extra_hosts:
-      - "metastore:172.28.1.1"
+      - "metastore:master.net"
       - "master:master.net"
 
 volumes:
