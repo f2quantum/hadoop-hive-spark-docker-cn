@@ -44,6 +44,6 @@ history: http://localhost:18080
 URI: jdbc:hive2://localhost:10000
 
 ### Jupyter Notebook
-URL: http://localhost:8888
+URL: http://localhost:8888?token=5B27LFyqrfTrzfUiT076
 
 example: [jupyter/notebook/pyspark.ipynb](jupyter/notebook/pyspark.ipynb)
