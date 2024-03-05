@@ -129,7 +129,12 @@ services:
       SPARK_MASTER_HOST: 172.28.1.2
       SPARK_LOCAL_IP: 172.28.1.6
       SPARK_LOCAL_HOSTNAME: jupyter
-      JUPYTER_TOKEN: 5B27LFyqrfTrzfUiT076
+      PASSWORD: 5B27LFyqrfTrzfUiT076
+      NB_USER: "root"
+      NB_UID: 0
+      NB_GID: 0
+      NOTEBOOK_ARGS: --allow-root
+
     depends_on:
       - master
       - worker1
