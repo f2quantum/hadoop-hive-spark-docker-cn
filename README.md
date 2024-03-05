@@ -44,6 +44,12 @@ history: http://localhost:18080
 URI: jdbc:hive2://localhost:10000
 
 ### Jupyter Notebook
-URL: http://localhost:8888?token=5B27LFyqrfTrzfUiT076
+URL: http://localhost:8888?token=yiyishiwushiyiyijiuyijiubayiling
+
+如果出现文件权限问题，将文件夹的权限转交docker（常见于非root用于运行docker）：
+
+``` bash
+sudo chown -R 1000.1000 ./jupyter/notebook
+```
 
 example: [jupyter/notebook/pyspark.ipynb](jupyter/notebook/pyspark.ipynb)
