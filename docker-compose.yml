@@ -154,25 +154,25 @@ services:
    #       devices:
    #         - capabilities: [gpu]
 
-  dev:
-    image: hadoop-hive-spark-dev
-    hostname: dev
-    environment:
-      SPARK_MASTER_HOST: 172.28.1.2
-      SPARK_LOCAL_IP: 172.28.1.7
-      SPARK_LOCAL_HOSTNAME: dev
-    volumes:
-      - ./dev/home:/home/jupyter/dev
-      - ./spark-test-ant:/home/jupyter/spark-test-ant
-    networks:
-      sparknet:
-        ipv4_address: 172.28.1.7
-    extra_hosts:
-      - "metastore:172.28.1.1"
-      - "master:172.28.1.2"
-      - "worker2:172.28.1.4"
-      - "history:172.28.1.5"
-      - "jupyter:172.28.1.6"
+  # dev:
+  #   image: hadoop-hive-spark-dev
+  #   hostname: dev
+  #   environment:
+  #     SPARK_MASTER_HOST: 172.28.1.2
+  #     SPARK_LOCAL_IP: 172.28.1.7
+  #     SPARK_LOCAL_HOSTNAME: dev
+  #   volumes:
+  #     - ./dev/home:/home/jupyter/dev
+  #     - ./spark-test-ant:/home/jupyter/spark-test-ant
+  #   networks:
+  #     sparknet:
+  #       ipv4_address: 172.28.1.7
+  #   extra_hosts:
+  #     - "metastore:172.28.1.1"
+  #     - "master:172.28.1.2"
+  #     - "worker2:172.28.1.4"
+  #     - "history:172.28.1.5"
+  #     - "jupyter:172.28.1.6"
   #  deploy:
   #    resources:
   #      reservations:

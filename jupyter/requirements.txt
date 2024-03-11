@@ -1,0 +1,8 @@
+pandas 
+openpyxl 
+findspark 
+geopandas
+shapely
+rasterio
+scikit-learn
+geospark

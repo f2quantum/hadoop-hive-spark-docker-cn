@@ -43,6 +43,8 @@ history: http://localhost:18080
 ### Hive
 URI: jdbc:hive2://localhost:10000
 
+- jupyter
+- jupyter
 ### Jupyter Notebook
 URL: http://localhost:8888?token=yiyishiwushiyiyijiuyijiubayiling
 
@@ -53,3 +55,15 @@ sudo chown -R 1000.1000 ./jupyter/notebook
 ```
 
 example: [jupyter/notebook/pyspark.ipynb](jupyter/notebook/pyspark.ipynb)
+
+
+## If you need a WebUI view in a remote server
+
+### Docker + VNC
+
+``` bash 
+docker run -d -p 3389:3389 -p 5901:5901 -p 6901:6901 --name ubuntu-xfce-vnc --net host soff/ubuntu-xfce-vnc
+```
+- 浏览器，直接访问：http://ip:6901，密码 vncpassword
+- VNC：ip:5901，密码 vncpassword
+- RDP：ip，用户名 user 密码 password

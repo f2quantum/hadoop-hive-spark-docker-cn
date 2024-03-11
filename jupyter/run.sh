@@ -8,4 +8,4 @@ echo "Starting jupyter notebook..."
 #   echo "go"
 #   # loop infinitely
 # done
-jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='yiyishiwushiyiyijiuyijiubayiling' --notebook-dir=/home/jupyter/notebook
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --notebook-dir=/home/jupyter/notebook

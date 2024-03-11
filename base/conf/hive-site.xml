@@ -40,4 +40,12 @@
         <name>hive.metastore.schema.verification</name>
         <value>false</value>
     </property>
+    <property>
+        <name>hive.exec.dynamici.partition</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>true</value>
+    </property>
 </configuration>
